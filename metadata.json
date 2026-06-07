@@ -1,0 +1,56 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Safety Net (Fortress Base Defense)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Dynamic role lookup from users collection
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && (
+        getUserData().role == 'admin'
+      );
+    }
+
+    function isStaff() {
+      return isAuthenticated() && (
+        getUserData().role == 'staff'
+      );
+    }
+
+    function isAdminOrStaff() {
+      return isAuthenticated() && (
+        getUserData().role == 'admin' || getUserData().role == 'staff'
+      );
+    }
+
+    // Rules for each collection matching the blueprint definition
+    match /users/{userId} {
+      // Any authenticated user can read user profiles to list team members or assignments
+      allow read: if isAuthenticated();
+      // Users can only write their own profile, or admins can write/update any profiles
+      allow write: if isAuthenticated() && (request.auth.uid == userId || isAdmin());
+    }
+
+    match /customers/{customerId} {
+      // Authenticated admin and staff members can manage customer data
+      allow read, write: if isAuthenticated() && isAdminOrStaff();
+    }
+
+    match /followups/{followupId} {
+      // Authenticated admin and staff members can manage follow-ups
+      allow read, write: if isAuthenticated() && isAdminOrStaff();
+    }
+  }
+}

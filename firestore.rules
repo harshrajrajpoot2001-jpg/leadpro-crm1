@@ -1,0 +1,19 @@
+{
+  "projectId": "glowing-interchange-qfbwx",
+  "appId": "1:396098913990:web:1e818be5ad640d528279c7",
+  "apiKey": "AIzaSyBTq2iBQkMxx5MV_H26fZNEwZP6OSCCwkQ",
+  "authDomain": "glowing-interchange-qfbwx.firebaseapp.com",
+  "firestoreDatabaseId": "ai-studio-774f63c4-a26d-4472-8ca1-a1a0e02d0b5c",
+  "storageBucket": "glowing-interchange-qfbwx.firebasestorage.app",
+  "messagingSenderId": "396098913990",
+  "measurementId": "",
+  "firebase": {
+    "projectId": "glowing-interchange-qfbwx",
+    "appId": "1:396098913990:web:1e818be5ad640d528279c7",
+    "apiKey": "AIzaSyBTq2iBQkMxx5MV_H26fZNEwZP6OSCCwkQ",
+    "authDomain": "glowing-interchange-qfbwx.firebaseapp.com",
+    "firestoreDatabaseId": "ai-studio-774f63c4-a26d-4472-8ca1-a1a0e02d0b5c",
+    "storageBucket": "glowing-interchange-qfbwx.firebasestorage.app",
+    "messagingSenderId": "396098913990"
+  }
+}
