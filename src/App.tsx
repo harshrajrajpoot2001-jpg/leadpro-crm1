@@ -6,7 +6,7 @@ import {
   INITIAL_TASKS,
   INITIAL_NOTIFICATIONS,
   INITIAL_ACTIVITY_LOGS
-} from './data';
+} from '../data';
 
 import {
   subscribeCustomers,
