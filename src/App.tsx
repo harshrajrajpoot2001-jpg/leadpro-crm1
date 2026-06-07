@@ -19,7 +19,7 @@ import {
   updateFollowUp,
   deleteFollowUp,
   seedInitialFollowUps
-} from './crmDb';
+} from '../crmDb';
 
 import Layout from './components/Layout';
 import Login from './components/Login';
